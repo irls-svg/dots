@@ -10,7 +10,7 @@ readme_contents = "\n# dots\n\n"
 
 for item in files:
     if item.endswith(".jpg") or item.endswith(".jpeg") or item.endswith(".png") or item.endswith(".bmp") or item.endswith(".gif") or item.endswith(".webm"):
-        readme_contents += (item + "\n![" + item + "](" + item + ")\n")
+        readme_contents += str(f'## {item}\n\n![{item}]({item})\n\n')
         
 with open("/Users/lili/.dots/wallpapers/README.md", "w") as readme:
     readme.write(readme_contents)
