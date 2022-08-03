@@ -1,6 +1,4 @@
 
-# dots
-
 ## wallhaven-d5d1em.png
 
 ![wallhaven-d5d1em.png](wallhaven-d5d1em.png)
@@ -408,4 +406,3 @@
 ## wallhaven-g7wr8d.jpg
 
 ![wallhaven-g7wr8d.jpg](wallhaven-g7wr8d.jpg)
-
