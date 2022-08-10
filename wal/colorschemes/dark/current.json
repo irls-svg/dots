@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/Users/lili/files/wallpaper/wallhaven-289q2x.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0F1B28",
+        "foreground": "#a8c0dc",
+        "cursor": "#a8c0dc"
+    },
+    "colors": {
+        "color0": "#0F1B28",
+        "color1": "#314F6A",
+        "color2": "#475974",
+        "color3": "#356895",
+        "color4": "#506A96",
+        "color5": "#717D88",
+        "color6": "#6B8FA8",
+        "color7": "#a8c0dc",
+        "color8": "#75869a",
+        "color9": "#314F6A",
+        "color10": "#475974",
+        "color11": "#356895",
+        "color12": "#506A96",
+        "color13": "#717D88",
+        "color14": "#6B8FA8",
+        "color15": "#a8c0dc"
+    }
+}

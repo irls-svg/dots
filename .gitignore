@@ -1,0 +1,7 @@
+.DS_Store
+secrets.sh
+update_readme.py
+nvim-brook
+nvim
+wal/templates/
+xterm-256color.ti
