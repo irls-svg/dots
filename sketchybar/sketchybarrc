@@ -1,0 +1,192 @@
+#!/bin/sh
+
+# IMPORTS
+source "${HOME}/.config/wal/argb.sh" # import colours from pywal
+
+# VARIABLES
+PADDING=12
+INNER_PADDING=8
+SPACE_ICON=""
+FONT="Hack Nerd Font"
+PLUGIN_DIR="${HOME}/.config/sketchybar/plugins"
+
+# EVENTS
+sketchybar                                                                \
+  --add event input_change 'com.apple.AppleSelectedInputSourcesChangedNotification'
+
+# BAR SETTINGS
+sketchybar --bar height=22                                                \
+                 margin=22                                                \
+                 y_offset=6                                               \
+                 blur_radius=0                                            \
+                 position=top                                             \
+                 padding_left=0                                           \
+                 padding_right=0                                          \
+                 color=$nil                                               \
+                 font_smoothing=0                                         \
+                                                                          \
+           --default updates=on                                           \
+                     drawing=off                                          \
+                     icon.font="${FONT}:Bold:11.0"                        \
+                     icon.color=$color7                                   \
+                     icon.highlight_color=$background                     \
+                     label.font="${FONT}:Normal:12.0"                     \
+                     label.color=$color7                                  \
+                     label.highlight_color=$background                    \
+                     background.corner_radius=2                           \
+
+# LEFT ITEMS
+# We add some regular items to the left side of the bar
+# only the properties deviating from the current defaults need to be set
+
+sketchybar                                                                \
+  --add item                                                              \
+        spacer left                                                       \
+  --set spacer                                                            \
+        label=""                                                          \
+        drawing=on                                                        \
+                                                                          \
+  --add space                                                             \
+        main left                                                         \
+  --set main                                                              \
+        icon="􀉉"                                                          \
+        drawing=on                                                        \
+        associated_space=1                                                \
+        icon.padding_left=${INNER_PADDING}                                \
+        icon.padding_right="$((${PADDING} - 3))"                          \
+        icon.highlight_color=${color7}                                    \
+        label.drawing=off                                                 \
+        background.height=18                                              \
+        script="$PLUGIN_DIR/space.sh"                                     \
+        click_script="yabai -m space --focus main"                        \
+                                                                          \
+  --clone social main                                                     \
+  --set social                                                            \
+        icon="􀌤"                                                          \
+        associated_space=2                                                \
+        click_script="yabai -m space --focus 2 2>/dev/null & disown"      \
+                                                                          \
+  --clone browser main                                                    \
+  --set browser                                                           \
+        icon="􀎬"                                                          \
+        associated_space=3                                                \
+        click_script="yabai -m space --focus 3 2>/dev/null & disown"      \
+                                                                          \
+  --clone code main                                                       \
+  --set code                                                              \
+        icon="􀙚"                                                          \
+        associated_space=4                                                \
+        click_script="yabai -m space --focus 4 2>/dev/null & disown"      \
+                                                                          \
+  --clone terminal main                                                   \
+  --set terminal                                                          \
+        icon="􀩼"                                                          \
+        associated_space=5                                                \
+        click_script="yabai -m space --focus 5 2>/dev/null & disown"      \
+                                                                          \
+  --clone media main                                                      \
+  --set media                                                             \
+        icon="􀑈"                                                          \
+        associated_space=6                                                \
+        click_script="yabai -m space --focus 6 2>/dev/null & disown"      \
+                                                                          \
+  --clone right_spacer spacer                                             \
+                                                                          \
+  --add item                                                              \
+        active_window left                                                \
+  --set active_window                                                     \
+        drawing=on                                                        \
+        icon=${SPACE_ICON}                                                \
+        icon.padding_left=$((${PADDING} - 2))                             \
+        icon.padding_right=$((${PADDING} - 3))                            \
+        label.y_offset="0.5"                                              \
+        label.padding_right=$((${PADDING} - 1))                           \
+        background.y_offset="0.5"                                         \
+        background.padding_left="${PADDING}"                              \
+        background.height=22                                              \
+        background.corner_radius=2                                        \
+        background.color=$background                                      \
+        script="${PLUGIN_DIR}/active_window.sh"                           \
+  --subscribe active_window front_app_switched
+
+# RIGHT ITEMS
+sketchybar                                                                \
+  --add item                                                              \
+        clock right                                                       \
+  --set clock                                                             \
+        drawing=on                                                        \
+        update_freq=10                                                    \
+        label.padding_right=${INNER_PADDING}                              \
+        background.color=${background}                                    \
+        background.corner_radius=2                                        \
+        script="$PLUGIN_DIR/clock.sh"                                     \
+                                                                          \
+  --clone date clock                                                      \
+  --set date                                                              \
+        update_freq=60                                                    \
+        label.padding_left=${INNER_PADDING}                               \
+        script="$PLUGIN_DIR/date.sh"                                      \
+                                                                          \
+  --add item                                                              \
+        battery right                                                     \
+  --set battery                                                           \
+        drawing=on                                                        \
+        update_freq=10                                                    \
+        icon.font="${FONT}:Bold:12.0"                                     \
+        icon.padding_left=${INNER_PADDING}                                \
+        label.padding_right=${INNER_PADDING}                              \
+        background.padding_left=${INNER_PADDING}                          \
+        background.padding_right=${INNER_PADDING}                         \
+        background.color=${background}                                    \
+        background.corner_radius=2                                        \
+        script="$PLUGIN_DIR/battery.sh"                                   \
+  --subscribe battery                                                     \
+        system_woke                                                       \
+                                                                          \
+  --clone weather battery                                                 \
+  --set weather                                                           \
+        drawing=on                                                        \
+        update_freq=60                                                    \
+        icon.padding_right=${INNER_PADDING}                               \
+        background.padding_right=0                                        \
+        script="$PLUGIN_DIR/weather.sh"                                   \
+                                                                          \
+  --clone input battery                                                   \
+  --set input                                                             \
+        label.font="${FONT}:Bold Italic:11.0"                             \
+        background.padding_right=0                                        \
+        script="${PLUGIN_DIR}/input.sh"                                   \
+  --subscribe input                                                       \
+        input_change                                                      \
+
+# BRACKETS
+sketchybar                                                                \
+  --add bracket                                                           \
+        spaces_bracket spacer                                             \
+                       main                                               \
+                       social                                             \
+                       browser                                            \
+                       code                                               \
+                       terminal                                           \
+                       media                                              \
+                       right_spacer                                       \
+  --set spaces_bracket                                                    \
+        drawing=on                                                        \
+        background.corner_radius=4                                        \
+        background.color=$background                                      \
+        background.padding_left=0                                         \
+        background.padding_right=0                                        \
+                                                                          \
+  --add bracket                                                           \
+      date_bracket clock                                                  \
+                   date                                                   \
+  --set date_bracket                                                      \
+        drawing=on                                                        \
+        background.corner_radius=4                                        \
+        background.color=$background                                      \
+        background.height=18                                              
+                                                                          
+# GO!
+sketchybar --update
+
+echo "sketchybar configuration loaded..."
