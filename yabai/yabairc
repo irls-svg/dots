@@ -31,7 +31,7 @@ yabai -m config mouse_follows_focus            off
 yabai -m config focus_follows_mouse            autofocus
 
 # window placement settings
-yabai -m config auto_balance                   off
+yabai -m config auto_balance                   on
 yabai -m config split_ratio                    0.5
 yabai -m config window_topmost                 off
 yabai -m config window_placement               second_child
@@ -77,34 +77,34 @@ yabai -m space 4 --label code
 yabai -m space 5 --label terminal
 yabai -m space 6 --label media
 
-# 1: organisation
-yabai -m rule --add app="Calendar"             space=1
-yabai -m rule --add app="Mail"                 space=1
-yabai -m rule --add app="Reminders"            space=1
-yabai -m rule --add app="Microsoft Outlook"    space=1
+## 1: organisation
+#yabai -m rule --add app="Calendar"             space=1
+#yabai -m rule --add app="Mail"                 space=1
+#yabai -m rule --add app="Reminders"            space=1
+#yabai -m rule --add app="Microsoft Outlook"    space=1#
 
-# 2: social
-yabai -m rule --add app="Discord"              space=2
-yabai -m rule --add app="Messages"             space=2
-yabai -m rule --add app="Slack"                space=2
+## 2: social
+#yabai -m rule --add app="Discord"              space=2
+#yabai -m rule --add app="Messages"             space=2
+#yabai -m rule --add app="Slack"                space=2#
 
-# 3: browser
-yabai -m rule --add app="Firefox"              space=3
-yabai -m rule --add app="^.*Chrome$"           space=3
+## 3: browser
+#yabai -m rule --add app="Firefox"              space=3
+#yabai -m rule --add app="^.*Chrome$"           space=3#
 
-# 4: main
-yabai -m rule --add app="^Code$"             space=4
-yabai -m rule --add app="^Microsoft [^O].*$"   space=4
-yabai -m rule --add app="Preview"              space=4
+## 4: main
+#yabai -m rule --add app="^Code$"             space=4
+#yabai -m rule --add app="^Microsoft [^O].*$"   space=4
+#yabai -m rule --add app="Preview"              space=4#
 
-# 5: terminal
-yabai -m rule --add app="Terminal"             space=5
-yabai -m rule --add app="iTerm2"               space=5
+## 5: terminal
+#yabai -m rule --add app="Terminal"             space=5
+#yabai -m rule --add app="iTerm2"               space=5#
 
-# 6: media
-yabai -m rule --add app="QuickTime Player"     space=6
-yabai -m rule --add app="Spotify"              space=6
-yabai -m rule --add app="Music"                space=6
+## 6: media
+#yabai -m rule --add app="QuickTime Player"     space=6
+#yabai -m rule --add app="Spotify"              space=6
+#yabai -m rule --add app="Music"                space=6
 
 # APP SETTINGS
 
@@ -117,7 +117,7 @@ yabai -m rule --add app="^${border_apps}$"     border=on
 
 # NOTE: these must come last, otherwise they'll mess with everything else for some reason
 # send main apps to bottom layer (prevent covering dialogues)
-yabai -m rule --add app="^${main_apps}$"       manage=on layer=below
+yabai -m rule --add app="^${main_apps}$"       manage=on #layer=below
 
 # any apps that aren't main, day-to-day applications get put to float
 yabai -m rule --add app!="^${main_apps}$"      manage=off
