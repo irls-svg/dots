@@ -145,6 +145,10 @@
 
 ![retro-consoles.jpg](retro-consoles.jpg)
 
+## circuit.png
+
+![circuit.png](circuit.png)
+
 ## wallhaven-k7wpxq.png
 
 ![wallhaven-k7wpxq.png](wallhaven-k7wpxq.png)
@@ -188,6 +192,10 @@
 ## wallhaven-e7rz6o.png
 
 ![wallhaven-e7rz6o.png](wallhaven-e7rz6o.png)
+
+## Dim_12000x6000.png
+
+![Dim_12000x6000.png](Dim_12000x6000.png)
 
 ## wallhaven-oxozqm.png
 
@@ -332,6 +340,10 @@
 ## wallhaven-k7k12q.jpg
 
 ![wallhaven-k7k12q.jpg](wallhaven-k7k12q.jpg)
+
+## sushi.png
+
+![sushi.png](sushi.png)
 
 ## wallhaven-v9m2r8.png
 
